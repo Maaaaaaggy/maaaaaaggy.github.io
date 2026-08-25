@@ -4,12 +4,55 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>校园经历 | Maggy Sun</title>
-    <style>
-       *{box-sizing:border-box;margin:0;padding:0;}
+  <style>
+        *{box-sizing:border-box;margin:0;padding:0;}
         body{font-family:system-ui, sans-serif;line-height:1.7;max-width:1100px;margin:0 auto;padding:30px 20px;color:#222;}
         .back-link a{display:inline-block;margin-bottom:30px;color:#2c3e50;font-size:17px;text-decoration:none;}
         .back-link a:hover{text-decoration:underline;}
-        h1{font-size:32px;margin-bottom:36px;color:#1a2533;}
+
+        /* 深蓝色标题框 */
+        .page-title-bar{
+            background-color:#2c3e50;
+            color:#ffffff;
+            text-align:center;
+            padding:22px;
+            border-radius:6px;
+            margin-bottom:36px;
+        }
+        .page-title-bar h1{
+            font-size:32px;
+            margin:0;
+        }
+
+        /* 自动滚动外层容器 */
+        .cert-scroll-wrap{
+            width:100%;
+            overflow:hidden;
+            padding:10px 0 20px 0;
+            margin-bottom:30px;
+        }
+        /* 滚动动画容器，复制一份图片实现无缝循环 */
+        .scroll-inner{
+            display:flex;
+            gap:12px;
+            animation: autoScroll 25s linear infinite;
+        }
+        /* 鼠标悬浮暂停滚动 */
+        .cert-scroll-wrap:hover .scroll-inner{
+            animation-play-state: paused;
+        }
+        .scroll-inner img{
+            height:160px;
+            border-radius:6px;
+            object-fit:contain;
+            flex-shrink:0;
+        }
+        /* 自动滚动动画 */
+        @keyframes autoScroll {
+            0% {transform: translateX(0);}
+            100% {transform: translateX(-50%);}
+        }
+
         .item{margin-bottom:32px;}
         .item-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:10px;}
         .time{font-size:22px;font-weight:bold;color:#1a2533;}
@@ -23,8 +66,31 @@
         <a href="index.html">← 返回首页</a>
     </div>
 
-    <h1>校园经历</h1>
+   <div class="page-title-bar">
+     <h1>校园经历</h1>
+</div>
 
+    <!-- 自动无缝轮播证书区域 -->
+    <div class="cert-scroll-wrap">
+        <div class="scroll-inner">
+            <!-- 第一组6张证书 -->
+            <img src="campus1.jpg" alt="证书">
+            <img src="campus2.jpg" alt="证书">
+            <img src="campus-xpu1.jpg" alt="证书">
+            <img src="campus-xpu2.jpg" alt="证书">
+            <img src="campus-xpu3.jpg" alt="证书">
+            <img src="campus-xpu4.jpg" alt="证书">
+            <img src="campus-xpu5.jpg" alt="证书">
+            <!-- 复制一遍，实现无缝衔接，不要删减 -->
+            <img src="campus1.jpg" alt="证书">
+            <img src="campus2.jpg" alt="证书">
+            <img src="campus-xpu1.jpg" alt="证书">
+            <img src="campus-xpu2.jpg" alt="证书">
+            <img src="campus-xpu3.jpg" alt="证书">
+            <img src="campus-xpu4.jpg" alt="证书">
+            <img src="campus-xpu5.jpg" alt="证书">
+        </div>
+    </div>
     <div class="item">
         <div class="item-header">
             <span class="time">2024.09‑2025.09</span>
