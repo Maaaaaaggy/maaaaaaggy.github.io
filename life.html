@@ -9,11 +9,56 @@
         body{font-family:system-ui, sans-serif;line-height:1.7;max-width:1100px;margin:0 auto;padding:30px 20px;color:#222;}
         .back-link a{display:inline-block;margin-bottom:30px;color:#2c3e50;font-size:17px;text-decoration:none;}
         .back-link a:hover{text-decoration:underline;}
-        h1{font-size:32px;margin-bottom:36px;color:#1a2533;}
-        h2{font-size:26px;margin:30px 0 16px 0;color:#2c3e50;}
-        .content{font-size:18px;}
-        .photo-group{margin:16px 0;display:grid;grid-template-columns:1fr 1fr;gap:16px;}
-        .photo-group img{width:100%;border-radius:8px;object-fit:cover;}
+
+        /* 深蓝色标题框 */
+        .page-title-bar{
+            background-color:#2c3e50;
+            color:#ffffff;
+            text-align:center;
+            padding:22px;
+            border-radius:6px;
+            margin-bottom:36px;
+        }
+        .page-title-bar h1{
+            font-size:32px;
+            margin:0;
+        }
+
+        /* 自动滚动外层容器 */
+        .cert-scroll-wrap{
+            width:100%;
+            overflow:hidden;
+            padding:10px 0 20px 0;
+            margin-bottom:30px;
+        }
+        /* 滚动动画容器，复制一份图片实现无缝循环 */
+        .scroll-inner{
+            display:flex;
+            gap:12px;
+            animation: autoScroll 25s linear infinite;
+        }
+        /* 鼠标悬浮暂停滚动 */
+        .cert-scroll-wrap:hover .scroll-inner{
+            animation-play-state: paused;
+        }
+        .scroll-inner img{
+            height:160px;
+            border-radius:6px;
+            object-fit:contain;
+            flex-shrink:0;
+        }
+        /* 自动滚动动画 */
+        @keyframes autoScroll {
+            0% {transform: translateX(0);}
+            100% {transform: translateX(-50%);}
+        }
+
+        .item{margin-bottom:32px;}
+        .item-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:10px;}
+        .time{font-size:22px;font-weight:bold;color:#1a2533;}
+        .title{font-size:22px;font-weight:bold;text-align:center;flex:1;padding:0 12px;}
+        .tag{font-size:22px;font-weight:bold;color:#1a2533;}
+        .content{padding-left:4px;font-size:18px;}
     </style>
 </head>
 <body>
@@ -21,19 +66,28 @@
         <a href="index.html">← 返回首页</a>
     </div>
 
-    <h1>课余生活</h1>
-
-    <!-- 培养兴趣板块 -->
-    <h2>培养兴趣</h2>
+   <div class="page-title-bar">
+        <h1>课余生活</h1>
+    </div>
+  <!-- 兴趣爱好板块 -->
+    <h2>兴趣爱好</h2>
     <div class="content">
-        <p>网球，游泳</p>
-        <div class="photo-group">
-            <!-- 将你的兴趣照片上传仓库，修改下面src里的文件名 -->
-            <img src="tennis1.jpg" alt="网球活动照片">
-            <img src="tennis3.jpg" alt="网球活动照片">
-            <img src="life2.jpg" alt="网球活动照片">
-            <img src="life3.jpg" alt="网球活动照片">
-            <!-- 如需更多照片，继续复制上面一行img标签即可 -->
+        <p>网球；游泳：</p>
+    <!-- 自动无缝轮播证书区域 -->
+    <div class="cert-scroll-wrap">
+        <div class="scroll-inner">
+            <!-- 第一组6张证书 -->
+            <img src="tennis1.jpg" alt="证书">
+            <img src="tennis2.jpg" alt="证书">
+            <img src="tennis3.jpg" alt="证书">
+            <img src="life2.jpg" alt="证书">
+            <img src="life3.jpg" alt="证书">
+            <!-- 复制一遍，实现无缝衔接，不要删减 -->
+           <img src="tennis1.jpg" alt="证书">
+            <img src="tennis2.jpg" alt="证书">
+            <img src="tennis3.jpg" alt="证书">
+            <img src="life2.jpg" alt="证书">
+            <img src="life3.jpg" alt="证书">
         </div>
     </div>
 
@@ -41,11 +95,19 @@
     <h2>志愿服务</h2>
     <div class="content">
         <p>参与多项志愿活动，获得相关志愿证书：</p>
-        <div class="photo-group">
-            <!-- 上传志愿证书图片，修改src文件名 -->
-            <img src="life4.jpg" alt="志愿服务证书">
-            <img src="life5.jpg" alt="志愿服务证书">
-            <img src="life6.jpg" alt="志愿服务证书">
+             <!-- 自动无缝轮播证书区域 -->
+           <div class="cert-scroll-wrap">
+              <div class="scroll-inner">
+                  <!-- 第一组6张证书 -->
+                  <img src="life4.jpg" alt="证书">
+                  <img src="life5.jpg" alt="证书">
+                  <img src="life6.jpg" alt="证书">
+                  <!-- 复制一遍，实现无缝衔接，不要删减 -->
+                  <img src="life4.jpg" alt="证书">
+                  <img src="life5.jpg" alt="证书">
+                  <img src="life6.jpg" alt="证书">
+              </div>
+          </div>
         </div>
     </div>
 
